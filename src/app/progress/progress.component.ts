@@ -9,6 +9,8 @@ export class ProgressComponent implements OnInit {
 
   constructor() { }
 
+  public progress: number = 0
+
   ngOnInit() {
   }
 
