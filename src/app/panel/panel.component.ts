@@ -14,7 +14,8 @@ export class PanelComponent implements OnInit {
   public round: number = 0
   public roundPhrase: Phrase
   public phrases: Phrase[] = PHRASES
-  public attempts = 3
+  public attempts: number = 3
+  public progress: number = 0
 
   constructor() {
     this.updateRound();
@@ -29,6 +30,8 @@ export class PanelComponent implements OnInit {
 
   public checkAnswer(): void {
     if(this.answer == this.roundPhrase.phrasePtBr){
+      this.round++
+      this.progress += 100/this.phrases.length
       alert('Ok!')
     }else{
       this.attempts--
