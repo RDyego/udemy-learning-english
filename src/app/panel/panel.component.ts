@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Phrase } from "../shared/phrase.mode";
+import { PHRASES } from "./phrase-mock";
 
 @Component({
   selector: 'app-panel',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelComponent implements OnInit {
 
-  constructor() { }
+  public instruction = "Traduza a frase"
+  public round: number = 0
+  public roundPhrase: Phrase
+  public phrases: Phrase[] = PHRASES
+
+  constructor() {
+    this.updateRound();
+   }
 
   ngOnInit() {
+  }
+
+  private updateRound(): void {
+    this.roundPhrase = this.phrases[this.round]
   }
 
 }

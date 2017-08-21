@@ -1,6 +1,6 @@
 import { Phrase } from "../shared/phrase.mode";
 
-export const FRASES: Phrase[] = [
+export const PHRASES: Phrase[] = [
     {phraseEng: 'I like to learn', phrasePtBr: 'Eu gosto de aprender'},
     {phraseEng: 'I watch tv', phrasePtBr: 'Eu assisto tv'},
     {phraseEng: 'How are you?', phrasePtBr: 'Como vai você?'},
