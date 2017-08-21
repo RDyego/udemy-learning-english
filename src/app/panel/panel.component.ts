@@ -14,6 +14,7 @@ export class PanelComponent implements OnInit {
   public round: number = 0
   public roundPhrase: Phrase
   public phrases: Phrase[] = PHRASES
+  public attempts = 3
 
   constructor() {
     this.updateRound();
@@ -30,7 +31,10 @@ export class PanelComponent implements OnInit {
     if(this.answer == this.roundPhrase.phrasePtBr){
       alert('Ok!')
     }else{
-      alert('Fail!')
+      this.attempts--
+      if(this.attempts < 0){
+        alert('Fail!')
+      }
     }
   }
 
