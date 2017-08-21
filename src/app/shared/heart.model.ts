@@ -5,7 +5,7 @@ export class Heart {
         public urlHeartEmpty: string = '/assets/coracao_vazio.png', 
     ){}
 
-    public showHeart(): string{
+    public show(): string{
         return this.full ? this.urlHeartFull : this.urlHeartEmpty
     }
 }
