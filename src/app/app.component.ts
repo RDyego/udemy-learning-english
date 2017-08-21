@@ -14,4 +14,9 @@ export class AppComponent {
     this.gameInProgress = false
   }
 
+  public restartGame(): void {
+    this.gameInProgress = true
+    this.typeFinish = undefined
+  }
+
 }
