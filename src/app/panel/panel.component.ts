@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Phrase } from "../shared/phrase.mode";
 import { PHRASES } from "./phrase-mock";
 
@@ -16,6 +16,7 @@ export class PanelComponent implements OnInit {
   public phrases: Phrase[] = PHRASES
   public attempts: number = 3
   public progress: number = 0
+  @Output() public finishGame: EventEmitter<string> = new EventEmitter
 
   constructor() {
     this.updateRound();
@@ -32,11 +33,14 @@ export class PanelComponent implements OnInit {
     if(this.answer == this.roundPhrase.phrasePtBr){
       this.round++
       this.progress += 100/this.phrases.length
-      alert('Ok!')
+      if(this.round === this.phrases.length){
+        this.finishGame.emit('won');
+      }
+      this.updateRound();
     }else{
       this.attempts--
       if(this.attempts < 0){
-        alert('Fail!')
+        this.finishGame.emit('lost');
       }
     }
   }

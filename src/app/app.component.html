@@ -1,2 +1,23 @@
 <app-top></app-top>
-<app-panel></app-panel>
+
+<div *ngIf="gameInProgress; else endGame">
+    <app-panel (finishGame)="finishGame($event)"></app-panel>
+</div>
+<ng-template #endGame>
+    <div *ngIf="typeFinish === 'lost'; else wonGame" class="container">
+        <div class="row">
+            <div class="col">
+                <p>Fim de jogo - Lost</p>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #wonGame>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>Fim de jogo - Won</p>
+            </div>
+        </div>
+    </div>
+</ng-template>
