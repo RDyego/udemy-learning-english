@@ -10,6 +10,7 @@ import { PHRASES } from "./phrase-mock";
 export class PanelComponent implements OnInit {
 
   public instruction = "Traduza a frase"
+  public answer = ''
   public round: number = 0
   public roundPhrase: Phrase
   public phrases: Phrase[] = PHRASES
@@ -19,6 +20,18 @@ export class PanelComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  public updateAnswer(answer: Event): void {
+    this.answer = (<HTMLInputElement>answer.target).value
+  }
+
+  public checkAnswer(): void {
+    if(this.answer == this.roundPhrase.phrasePtBr){
+      alert('Ok!')
+    }else{
+      alert('Fail!')
+    }
   }
 
   private updateRound(): void {
