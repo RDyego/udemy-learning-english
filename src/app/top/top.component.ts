@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopComponent implements OnInit {
 
+  public NavbarTitle: string = "Leaning English!"
+
   constructor() { }
 
   ngOnInit() {
