@@ -30,7 +30,7 @@ export class PanelComponent implements OnInit {
   }
 
   public checkAnswer(): void {
-    if(this.answer == this.roundPhrase.phrasePtBr){
+    if(this.answer.toUpperCase().trim() == this.roundPhrase.phrasePtBr.toUpperCase().trim()){
       this.round++
       this.progress += 100/this.phrases.length
       this.answer = ""
