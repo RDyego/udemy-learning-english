@@ -33,6 +33,7 @@ export class PanelComponent implements OnInit {
     if(this.answer == this.roundPhrase.phrasePtBr){
       this.round++
       this.progress += 100/this.phrases.length
+      this.answer = ""
       if(this.round === this.phrases.length){
         this.finishGame.emit('won');
       }
